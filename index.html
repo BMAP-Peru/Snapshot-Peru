@@ -1213,6 +1213,96 @@
         margin-left: 0;
         justify-self: end;
     }
+
+    /* ============================================
+       GOBERNANZA - GRID DE LOGOS
+       ============================================ */
+    .gobernanza-section { background: var(--gris-fondo); }
+    .grupo-titulo {
+        font-family: 'Playfair Display', serif;
+        font-size: 1.4rem;
+        color: var(--verde-oscuro);
+        margin: 50px 0 28px;
+        font-weight: 700;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+    }
+    .grupo-titulo::before {
+        content: '';
+        width: 4px;
+        height: 24px;
+        background: linear-gradient(to bottom, var(--verde-primario), var(--dorado));
+        border-radius: 2px;
+    }
+    .grupo-titulo:first-of-type { margin-top: 0; }
+
+    .logos-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: 28px;
+        align-items: stretch;
+        justify-items: center;
+    }
+    .logo-item {
+        background: var(--blanco);
+        border-radius: 20px;
+        padding: 28px 24px;
+        box-shadow: var(--sombra-suave);
+        border: 1px solid var(--gris-suave);
+        transition: var(--transicion);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        width: 100%;
+        position: relative;
+        overflow: hidden;
+    }
+    .logo-item::before {
+        content: '';
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 3px;
+        background: linear-gradient(90deg, var(--verde-primario), var(--dorado));
+        transform: scaleX(0);
+        transition: transform 0.5s ease;
+        transform-origin: left;
+    }
+    .logo-item:hover::before { transform: scaleX(1); }
+    .logo-item:hover {
+        transform: translateY(-6px);
+        box-shadow: var(--sombra-media);
+        border-color: var(--verde-pastel);
+    }
+    .logo-item img {
+        max-width: 100%;
+        max-height: 80px;
+        object-fit: contain;
+        margin-bottom: 14px;
+        filter: grayscale(30%);
+        transition: var(--transicion);
+    }
+    .logo-item:hover img {
+        filter: grayscale(0%);
+        transform: scale(1.05);
+    }
+    .logo-name {
+        color: var(--verde-oscuro);
+        font-size: 0.82rem;
+        font-weight: 600;
+        line-height: 1.4;
+        margin-top: auto;
+    }
+
+    @media (max-width: 768px) {
+        .logos-grid { grid-template-columns: repeat(2, 1fr); gap: 16px; }
+        .grupo-titulo { font-size: 1.2rem; margin: 35px 0 20px; }
+    }
+    @media (max-width: 480px) {
+        .logos-grid { grid-template-columns: 1fr; }
+    }
+
 }
 
     /* ============================================
@@ -1732,7 +1822,80 @@
     </section>
 
 
+    <!-- ============================================
+         NUESTRO MODELO DE GOBERNANZA
+         ============================================ -->
+    <section class="gobernanza-section" id="gobernanza">
+        <div class="container">
+            <div class="section-header fade-in">
+                <span class="section-tag"><i class="fas fa-sitemap"></i> Organización</span>
+                <h2 class="section-title">Nuestro modelo de gobernanza</h2>
+                <p class="section-subtitle">
+                    Snapshot Perú se rige por una estructura colaborativa que articula esfuerzos 
+                    entre instituciones de la sociedad civil, el Estado y la academia para garantizar 
+                    la sostenibilidad y rigor científico del proyecto.
+                </p>
+            </div>
 
+            <!-- ASAMBLEA GENERAL -->
+            <h3 class="grupo-titulo fade-in">Asamblea General</h3>
+            <div class="logos-grid fade-in fade-in-delay-1">
+                <div class="logo-item">
+                    <img src="logos/gobernanza/ampa.png" alt="AMPA" loading="lazy">
+                    <span class="logo-name">Asociación Amazónicos por la Amazonía (AMPA)</span>
+                </div>
+                <div class="logo-item">
+                    <img src="logos/gobernanza/mosaicc.png" alt="Mosaico de Conservación Cordillera de Colán" loading="lazy">
+                    <span class="logo-name">Mosaico de Conservación Cordillera de Colán</span>
+                </div>
+                <div class="logo-item">
+                    <img src="logos/gobernanza/asa3.png" alt="Santuario Nacional Cordillera de Colán" loading="lazy">
+                    <span class="logo-name">Santuario Nacional Cordillera de Colán</span>
+                </div>
+                <div class="logo-item">
+                    <img src="logos/gobernanza/gore-cajamarca.png" alt="Gobierno Regional de Cajamarca" loading="lazy">
+                    <span class="logo-name">Gobierno Regional de Cajamarca</span>
+                </div>
+                <div class="logo-item">
+                    <img src="logos/gobernanza/asa5.png" alt="Universidades" loading="lazy">
+                    <span class="logo-name">Universidades</span>
+                </div>
+            </div>
+
+            <!-- COMITÉ CIENTÍFICO -->
+            <h3 class="grupo-titulo fade-in fade-in-delay-2">Comité Científico</h3>
+            <div class="logos-grid fade-in fade-in-delay-3">
+                <div class="logo-item">
+                    <img src="logos/gobernanza/wcs.png" alt="WCS" loading="lazy">
+                    <span class="logo-name">WCS</span>
+                </div>
+                <div class="logo-item">
+                    <img src="logos/gobernanza/comite2.png" alt="Conservación Amazónica ACCA" loading="lazy">
+                    <span class="logo-name">Conservación Amazónica ACCA</span>
+                </div>
+                <div class="logo-item">
+                    <img src="logos/gobernanza/cima.png" alt="CIMA" loading="lazy">
+                    <span class="logo-name">CIMA Cordillera Azul</span>
+                </div>
+                <div class="logo-item">
+                    <img src="logos/gobernanza/cds-eirl.png" alt="CDS EIRL" loading="lazy">
+                    <span class="logo-name">CDS EIRL</span>
+                </div>
+                <div class="logo-item">
+                    <img src="logos/gobernanza/arbio.png" alt="ARBIO" loading="lazy">
+                    <span class="logo-name">ARBIO</span>
+                </div>
+                <div class="logo-item">
+                    <img src="logos/gobernanza/comite6.png" alt="Crees Foundation" loading="lazy">
+                    <span class="logo-name">Crees Foundation</span>
+                </div>
+                <div class="logo-item">
+                    <img src="logos/gobernanza/smithsonian.png" alt="Smithsonian" loading="lazy">
+                    <span class="logo-name">Smithsonian Institution</span>
+                </div>
+            </div>
+        </div>
+    </section>
 
 
 
